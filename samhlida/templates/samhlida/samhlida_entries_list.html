@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load my_tags %}
+
+{% block head_block %}
+    <link rel="stylesheet" href="{% static "css/samhlida.css" %}">
+{% endblock %}
+
+{% block body_block %}
+ {% if is_paginated %}
+     <hr class="uk-margin-remove-top uk-margin-remove-bottom"/>
+    <div class="uk-container uk-width-1-1">
+        <ul class="uk-pagination uk-flex-center" uk-margin>
+            {% if page_obj.has_previous %}
+                <li><a href="?{% param_replace page=page_obj.previous_page_number %}"><span uk-pagination-previous></span></a></li>
+                <li><a href="?{% param_replace page=1 %}">1</a></li>
+                 <li class="uk-disabled"><span>...</span></li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="uk-active"><span>{{ num }}</span></li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                  <li><a href="?{% param_replace page=num %}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li class="uk-disabled"><span>...</span></li>
+                <li><a href="?{% param_replace page=page_obj.paginator.num_pages %}">{{ paginator.num_pages }}</a></li>
+                <li><a href="?{% param_replace page=page_obj.next_page_number  %}"><span uk-pagination-next></span></a></li>
+            {% endif %}
+        </ul>
+    </div>
+     <hr class="uk-margin-remove-top uk-margin-remove-bottom"/>
+{% endif %}
+    <div class="uk-container uk-container-expand uk-padding-remove-horizontal">
+        <div class="uk-grid-collapse uk-child-width-expand@s uk-text-left" uk-grid>
+            <div id="left-col" class="uk-padding-small" uk-height-viewport="offset-top: true">
+                 <form class="uk-search uk-search-default uk-width-1-1" action="" method="get">
+                       <span uk-search-icon></span>
+                      {{ filterset.form.isl_text| isl_text_search_bar:"uk-search-input uk-width-1-1" }}
+                  </form>
+                <ol id="left-list" class="uk-list uk-list-striped">
+                    {% for entry in entries %}
+                        <li class="p_{{ entry.number }}">{{ entry.isl_text }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+            <div id="right-col" class="uk-padding-small" uk-height-viewport="offset-top: true">
+                 <form class="uk-search uk-search-default uk-width-1-1" action="" method="get">
+                       <span uk-search-icon></span>
+                      {{ filterset.form.other_text| other_text_search_bar:"uk-search-input uk-width-1-1" }}
+                  </form>
+                <ol id="right-list" class="uk-list uk-list-striped">
+                    {% for entry in entries  %}
+                        <li class="p_{{ entry.number }}">{{ entry.other_text}}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+     {% if is_paginated %}
+         <hr class="uk-margin-remove-bottom"/>
+          <div class="uk-container uk-width-1-1 uk-margin-vertical-large border-top border-bottom">
+        <ul class="uk-pagination uk-flex-center uk-margin-medium-top uk-margin-medium-bottom" uk-margin>
+            {% if page_obj.has_previous %}
+                <li><a href="?{% param_replace page=page_obj.previous_page_number %}"><span uk-pagination-previous></span></a></li>
+                <li><a href="?{% param_replace page=1 %}">1</a></li>
+                 <li class="uk-disabled"><span>...</span></li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="uk-active"><span>{{ num }}</span></li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                  <li><a href="?{% param_replace page=num %}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li class="uk-disabled"><span>...</span></li>
+                <li><a href="?{% param_replace page=page_obj.paginator.num_pages %}">{{ paginator.num_pages }}</a></li>
+                <li><a href="?{% param_replace page=page_obj.next_page_number  %}"><span uk-pagination-next></span></a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block scripts_block %}
+    <script src="{% static "js/samhlida/samhlida.js" %}"></script>
+    <script>
+    $(function (){
+        $("ol>li").hover(function(){
+            var id = $(this).attr('class');
+            $( "."+id ).toggleClass('uk-text-emphasis uk-text-large');
+            }, function() {
+            var id = $(this).attr('class');
+            $( "."+id.split(" ")[0] ).toggleClass('uk-text-emphasis uk-text-large');
+        });
+    });
+    </script>
+{% endblock %}

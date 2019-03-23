@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>{{ title  }}</title>
+    {% else %}
+    <title>IceAlign</title>
+    {% endif %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "site.webmanifest" %}">
+    <link rel="mask-icon" href="{% static "safari-pinned-tab.svg" %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    {#    UIkit CSS #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
+    {#    UIkit JS #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% block head_block %}{% endblock %}
+</head>
+<body>
+    <nav class="uk-navbar-container" uk-navbar uk-height-small>
+        {% if title %}
+        <div class="uk-navbar-center">
+            <a class="uk-navbar-item uk-logo" href="{{ request.path }}">{{ title }}</a>
+        </div>
+        {% endif %}
+        <div class="uk-navbar-right">
+            <a class="uk-navbar-toggle" href="#offcanvas" uk-toggle>
+                <span class="uk-margin-small-right">Menu</span>
+                <span uk-navbar-toggle-icon></span>
+            </a>
+        </div>
+    </nav>
+
+    {% block body_block %}
+    {% endblock %}
+
+<div id="offcanvas" uk-offcanvas="flip: true; overlay: false; mode: slide;">
+    <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+        <ul class="uk-nav uk-nav-default">
+            <li><a href="{% url 'home:home' %}"><span class="uk-margin-small-right" uk-icon="icon: home"></span>IceAlign</a></li>
+            <li class="uk-nav-header"><a href="{% url 'samhlida:index' %}">Samlhiða Málheildin</a></li>
+            <li><a href="{% url 'samhlida:biblian' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>Biblían</a></li>
+            <li><a href="{% url 'samhlida:eso' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>Fréttatilkynningar ESO</a></li>
+            <li><a href="{% url 'samhlida:hagstofan' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>Hagstofa Íslands</a></li>
+            <li><a href="{% url 'samhlida:fornritin' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>Íslendingasögur</a></li>
+            <li><a href="{% url 'samhlida:kde4' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>KDE4</a></li>
+            <li><a href="{% url 'samhlida:ema' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>Lyfseðlar EMA</a></li>
+            <li><a href="{% url 'samhlida:opensubtitles' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>OpenSubtitles</a></li>
+            <li><a href="{% url 'samhlida:ees' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>Skjöl EES</a></li>
+            <li><a href="{% url 'samhlida:tatoeba' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>Tatoeba</a></li>
+            <li><a href="{% url 'samhlida:ubuntu' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>Ubuntu</a></li>
+            <li><a href="{% url 'samhlida:baekur' %}"><span class="uk-margin-small-right" uk-icon="icon: file-text"></span>Þýdd skáldverk</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a href="https://github.com/egillanton/icealign"><span class="uk-margin-small-right" uk-icon="icon:  github"></span> Source Code</a></li>
+        </ul>
+    </div>
+</div>
+{% block scripts_block %}
+{% endblock %}
+</body>
+</html>

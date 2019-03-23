@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head_block %}
+    <link rel="stylesheet" href="{% static "css/samhlida.css" %}">
+{% endblock %}
+
+{% block body_block %}
+    <div class="uk-cover-container uk-background-cover " uk-height-viewport="offset-bottom: 6" style="background-image: url({% static 'images/background.jpg' %});">
+        <div class="uk-position-top-center uk-margin-large-top uk-margin-large-left uk-text-center">
+            <img class="uk-preserve" src="{% static 'images/iceberg-logo.svg' %}"  width="150" height="150" uk-svg>
+            <h1 class="uk-heading-hero">IceAlign</h1>
+            <h2>Search Tool for the Icelandic Parallel Corpus</h2>
+            <a class="uk-navbar-toggle" href="#offcanvas" uk-toggle>
+                <button class="uk-button uk-button-primary">Try it out</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

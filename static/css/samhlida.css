@@ -1,0 +1,18 @@
+#left-col {
+    border-left: 10px solid #f8f8f8;
+}
+
+#right-col {
+    border-left: 10px solid #f8f8f8;
+    border-right: 10px solid #f8f8f8;
+}
+
+li.listhover{
+  background-color: black;
+  color: white;
+}
+
+li.listhover {
+  background-color: white;
+  color: black;
+}
