@@ -29,7 +29,7 @@ http://icealign.herokuapp.com/
 <!-- ⛔️ MD-MAGIC-EXAMPLE:END -->
 
 ## 1 Introduction
-IceAlign is a barebones Django app, which can easily be deployed to Heroku.
+IceAlign is a Django web application, which can easily be deployed to Heroku.
 
 This web application serves as a corpus search tool for the  Icelandic Parallel Corpus (IPC).
 
