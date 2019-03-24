@@ -98,6 +98,8 @@ $ mv parice_dataset ../
 ## 3 Setup
 Make sure you have Python 3.7 [installed locally](http://install.python-guide.org). To push to Heroku, you'll need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), as well as [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
 
+Also, you will need to add the following Environment values for  SECRET_KEY, DEBUG_VALUE on your local device and as well for your Heroku App. [Read More Here](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/)
+
 ```bash
 ~/icealign/
 $ python -m venv getting-started
