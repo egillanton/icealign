@@ -31,7 +31,7 @@ http://icealign.herokuapp.com/
 ## 1 Introduction
 IceAlign is a barebones Django app, which can easily be deployed to Heroku.
 
-This web application serves as a corpus search tool for the  Icelandic Parallel Corpus(IPC).
+This web application serves as a corpus search tool for the  Icelandic Parallel Corpus (IPC).
 
 It improves upon the already existing corpus tool available at [http://malheildir.arnastofnun.is/](http://malheildir.arnastofnun.is/#?stats_reduce=word&isCaseInsensitive&searchBy=word&cqp=%5B%5D)
 
@@ -131,7 +131,12 @@ This might take some time to run.
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 6 References
+* [Malfong.is](http://malfong.is/?pg=samhlida)
 
 <p align="center">
-🌟 PLEASE STAR THIS REPO IF YOU FOUND SOMETHING INTERESTING 🌟
+🌟 PLEASE STAR THIS REPO IF YOU FOUND SOMETHING INTERESTING 🌟 <br/>
+<a class="github-button" href="https://github.com/egillanton/icealign" data-icon="octicon-star" data-size="large" aria-label="Star egillanton/icealign on GitHub">Star</a>
 </p>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
