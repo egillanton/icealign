@@ -134,9 +134,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 * [Malfong.is](http://malfong.is/?pg=samhlida)
 
 <p align="center">
-🌟 PLEASE STAR THIS REPO IF YOU FOUND SOMETHING INTERESTING 🌟 <br/>
-<a class="github-button" href="https://github.com/egillanton/icealign" data-icon="octicon-star" data-size="large" aria-label="Star egillanton/icealign on GitHub">Star</a>
+🌟 PLEASE STAR THIS REPO IF YOU FOUND SOMETHING INTERESTING 🌟
 </p>
-
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
