@@ -41,7 +41,7 @@
                   </form>
                 <ol id="left-list" class="uk-list uk-list-striped">
                     {% for entry in entries %}
-                        <li class="p_{{ entry.number }}">{{ entry.isl_text }}</li>
+                        <span data-uk-tooltip title={{ entry.other_text }}><li class="p_{{ entry.number }}">{{ entry.isl_text }}</li></span>
                     {% endfor %}
                 </ol>
             </div>
@@ -52,7 +52,7 @@
                   </form>
                 <ol id="right-list" class="uk-list uk-list-striped">
                     {% for entry in entries  %}
-                        <li class="p_{{ entry.number }}">{{ entry.other_text}}</li>
+                        <span data-uk-tooltip title="{{ entry.isl_text }}"><li class="p_{{ entry.number }}">{{ entry.other_text}}</li></span>
                     {% endfor %}
                 </ol>
             </div>
